@@ -1,0 +1,30 @@
+@ThinkingOutLoud_HostAddress = http://localhost:5176
+
+GET {{ThinkingOutLoud_HostAddress}}/api/author
+Content-Type: application/json
+
+###
+
+GET {{ThinkingOutLoud_HostAddress}}/api/author/15
+Content-Type: application/json
+
+###
+
+POST {{ThinkingOutLoud_HostAddress}}/api/author
+Content-Type: application/json
+
+{
+  "username": "newtestuser4"
+}
+
+###
+
+DELETE {{ThinkingOutLoud_HostAddress}}/api/author/17
+Content-Type: application/json
+
+###
+
+PUT {{ThinkingOutLoud_HostAddress}}/api/author/14/updateusername?username=anotherrename
+Content-Type: application/json
+
+###

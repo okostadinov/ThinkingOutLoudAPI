@@ -1,0 +1,42 @@
+@ThinkingOutLoud_HostAddress = http://localhost:5176
+
+GET {{ThinkingOutLoud_HostAddress}}/api/blog
+Content-Type: application/json
+
+###
+
+GET {{ThinkingOutLoud_HostAddress}}/api/blog/authorid/12
+Content-Type: application/json
+
+###
+
+GET {{ThinkingOutLoud_HostAddress}}/api/blog/1
+Content-Type: application/json
+
+###
+
+POST {{ThinkingOutLoud_HostAddress}}/api/blog
+Content-Type: application/json
+
+{
+  "title": "test blog",
+  "content": "test blog content",
+  "authorId": 14
+}
+
+###
+
+PUT {{ThinkingOutLoud_HostAddress}}/api/blog/1/updatetitle?title=renamed
+Content-Type: application/json
+
+###
+
+PUT {{ThinkingOutLoud_HostAddress}}/api/blog/1/updatecontent?content=updated content
+Content-Type: application/json
+
+###
+
+DELETE {{ThinkingOutLoud_HostAddress}}/api/blog/7
+Content-Type: application/json
+
+###
