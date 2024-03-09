@@ -9,6 +9,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<AuthorService>();
 builder.Services.AddScoped<BlogService>();
+builder.Services.AddScoped<TagService>();
 
 builder.Services.AddDbContext<ThinkingOutLoudContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));

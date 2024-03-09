@@ -9,10 +9,14 @@ namespace ThinkingOutLoud.Controllers
     public class BlogController : ControllerBase
     {
         private readonly BlogService _service;
+        private readonly AuthorService _authorService;
+        private readonly TagService _tagService;
 
-        public BlogController(BlogService service)
+        public BlogController(BlogService service, AuthorService authorService, TagService tagService)
         {
             _service = service;
+            _authorService = authorService;
+            _tagService = tagService;
         }
 
         [HttpGet]
@@ -34,7 +38,19 @@ namespace ThinkingOutLoud.Controllers
         [HttpGet("authorid/{id}")]
         public async Task<ActionResult<IEnumerable<Blog>>> GetAllByAuthorId(int id)
         {
+            var author = await _authorService.GetById(id);
+            if (author is null) return BadRequest("Invalid author ID");
+
             return await _service.GetAllByAuthorId(id);
+        }
+
+        [HttpGet("tagid/{id}")]
+        public async Task<ActionResult<IEnumerable<Blog>>> GetAllByTagId(int id)
+        {
+            var tag = await _tagService.GetById(id);
+            if (tag is null) return BadRequest("Invalid tag ID");
+
+            return await _service.GetAllByTagId(id);
         }
 
         [HttpPost]

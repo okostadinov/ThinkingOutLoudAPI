@@ -5,12 +5,17 @@ Content-Type: application/json
 
 ###
 
-GET {{ThinkingOutLoud_HostAddress}}/api/blog/authorid/12
+GET {{ThinkingOutLoud_HostAddress}}/api/blog/authorid/222
 Content-Type: application/json
 
 ###
 
-GET {{ThinkingOutLoud_HostAddress}}/api/blog/1
+GET {{ThinkingOutLoud_HostAddress}}/api/blog/tagid/44
+Content-Type: application/json
+
+###
+
+GET {{ThinkingOutLoud_HostAddress}}/api/blog/8
 Content-Type: application/json
 
 ###

@@ -24,7 +24,7 @@ Content-Type: application/json
 
 ###
 
-PUT {{ThinkingOutLoud_HostAddress}}/api/author/14/updateusername?username=anotherrename
+PUT {{ThinkingOutLoud_HostAddress}}/api/author/36/updateusername?username=jimbeam
 Content-Type: application/json
 
 ###

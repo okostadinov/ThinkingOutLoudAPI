@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ThinkingOutLoud.Data;
 using ThinkingOutLoud.Models;
@@ -23,6 +22,7 @@ public class BlogService
     {
         return _context.Blogs
             .Include(b => b.Author)
+            .Include(b => b.Tags)
             .AsNoTracking()
             .SingleOrDefaultAsync(b => b.Id == id);
     }
@@ -31,6 +31,15 @@ public class BlogService
     {
         return _context.Blogs
             .Where(b => b.Author != null && b.Author.Id == id)
+            .ToListAsync();
+    }
+
+    public Task<List<Blog>> GetAllByTagId(int id)
+    {
+        return _context.Tags
+            .Where(t => t.Id == id)
+            .SelectMany(t => t.Blogs)
+            .OrderBy(b => b.Published)
             .ToListAsync();
     }
 

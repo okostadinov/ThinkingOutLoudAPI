@@ -40,6 +40,7 @@ namespace ThinkingOutLoud.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Author author)
         {
+            if (_service.Exists(author.Username)) return BadRequest("Author with this username already exists");
             await _service.Create(author);
             return CreatedAtAction(nameof(GetById), new { id = author.Id }, author);
         }
@@ -47,6 +48,8 @@ namespace ThinkingOutLoud.Controllers
         [HttpPut("{id}/updateusername")]
         public async Task<IActionResult> UpdateUsername(int id, string username)
         {
+            if (_service.Exists(username)) return BadRequest("Author with this username already exists");
+
             var author = await _service.GetById(id);
             if (author is null) return NotFound();
 

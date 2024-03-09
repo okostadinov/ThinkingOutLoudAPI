@@ -22,4 +22,6 @@ public class Blog
     public virtual Author? Author { get; set; }
 
     public bool IsPrivate { get; set; } = false;
+
+    public virtual ICollection<Tag>? Tags { get; set; }
 }
