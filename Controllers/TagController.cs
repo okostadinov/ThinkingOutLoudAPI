@@ -34,7 +34,7 @@ public class TagController : ControllerBase {
         return CreatedAtAction(nameof(GetById), new {id = newTag.Id}, newTag);
     }
 
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id) {
         var tag = await _service.GetById(id);
 

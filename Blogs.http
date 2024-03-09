@@ -10,7 +10,7 @@ Content-Type: application/json
 
 ###
 
-GET {{ThinkingOutLoud_HostAddress}}/api/blog/tagid/4
+GET {{ThinkingOutLoud_HostAddress}}/api/blog/tagid/44
 Content-Type: application/json
 
 ###
