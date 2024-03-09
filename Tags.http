@@ -1,0 +1,24 @@
+@ThinkingOutLoud_HostAddress = http://localhost:5176
+
+GET {{ThinkingOutLoud_HostAddress}}/api/tag
+Content-Type: application/json
+
+###
+
+GET {{ThinkingOutLoud_HostAddress}}/api/tag/25
+Content-Type: application/json
+
+###
+
+POST {{ThinkingOutLoud_HostAddress}}/api/tag
+Content-Type: application/json
+
+{
+    "name": "random"
+}
+
+###
+
+DELETE {{ThinkingOutLoud_HostAddress}}/api/tag/30
+
+###

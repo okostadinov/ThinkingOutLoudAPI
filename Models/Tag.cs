@@ -8,7 +8,7 @@ public class Tag
     public int Id { get; set; }
 
     [Required]
-    public string? Name { get; set; }
+    public string Name { get; set; } = null!;
 
     [JsonIgnore]
     public virtual ICollection<Blog> Blogs { get; set; } = [];

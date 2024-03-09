@@ -6,20 +6,24 @@ namespace ThinkingOutLoud.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class TagController : ControllerBase {
+public class TagController : ControllerBase
+{
     private readonly TagService _service;
 
-    public TagController(TagService service) {
+    public TagController(TagService service)
+    {
         _service = service;
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Tag>>> GetAll() {
+    public async Task<ActionResult<IEnumerable<Tag>>> GetAll()
+    {
         return await _service.GetAll();
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<Tag?>> GetById(int id) {
+    public async Task<ActionResult<Tag?>> GetById(int id)
+    {
         var tag = await _service.GetById(id);
 
         if (tag is null) return NotFound();
@@ -28,14 +32,18 @@ public class TagController : ControllerBase {
     }
 
     [HttpPost]
-    public async Task<ActionResult<Tag>> Create(Tag tag) {
+    public async Task<ActionResult<Tag>> Create(Tag tag)
+    {
+        if (_service.Exists(tag.Name)) return BadRequest("Tag already exists");
+
         var newTag = await _service.Create(tag);
 
-        return CreatedAtAction(nameof(GetById), new {id = newTag.Id}, newTag);
+        return CreatedAtAction(nameof(GetById), new { id = newTag.Id }, newTag);
     }
 
     [HttpDelete("{id}")]
-    public async Task<IActionResult> Delete(int id) {
+    public async Task<IActionResult> Delete(int id)
+    {
         var tag = await _service.GetById(id);
 
         if (tag is null) return NotFound();

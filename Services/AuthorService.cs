@@ -54,4 +54,9 @@ public class AuthorService
             await _context.SaveChangesAsync();
         }
     }
+
+    public bool Exists(string username)
+    {
+        return _context.Authors.Any(a => a.Username == username);
+    }
 }

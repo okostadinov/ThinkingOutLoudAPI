@@ -23,7 +23,7 @@ public class TagService
     {
         return _context.Tags
             .AsNoTracking()
-            .SingleOrDefaultAsync(b => b.Id == id);
+            .SingleOrDefaultAsync(t => t.Id == id);
     }
 
     public async Task<Tag> Create(Tag tag)
@@ -42,5 +42,10 @@ public class TagService
             _context.Tags.Remove(tag);
             await _context.SaveChangesAsync();
         }
+    }
+
+    public bool Exists(string tagName)
+    {
+        return _context.Tags.Any(t => t.Name == tagName);
     }
 }

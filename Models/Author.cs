@@ -9,7 +9,7 @@ public class Author
 
     [Required]
     [MaxLength(100)]
-    public string? Username { get; set; }
+    public string Username { get; set; } = null!;
     
     [JsonIgnore]
     public ICollection<Blog>? Blogs { get; set; }
