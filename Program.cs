@@ -14,7 +14,6 @@ builder.Services.AddScoped<TagService>();
 builder.Services.AddDbContext<ThinkingOutLoudContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// builder.Services.AddScoped<DbInitializer>();
 
 var app = builder.Build();
 
